@@ -18,7 +18,11 @@ namespace Mission06_Zorrilla.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AddMovie()
+        {
+            return View();
+        }
+        public IActionResult GetToKnow()
         {
             return View();
         }
