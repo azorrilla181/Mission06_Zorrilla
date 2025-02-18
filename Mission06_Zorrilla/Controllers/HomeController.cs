@@ -18,9 +18,15 @@ namespace Mission06_Zorrilla.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult AddMovie()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult AddMovie(Application res)
+        {
+            return View("Confirmation");
         }
         public IActionResult GetToKnow()
         {
