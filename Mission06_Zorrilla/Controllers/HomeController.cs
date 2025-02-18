@@ -6,13 +6,18 @@ namespace Mission06_Zorrilla.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        private AddMovieContext _context;
+        public HomeController(AddMovieContext someName) //contructor
         {
-            _logger = logger;
+            _context = someName;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -26,6 +31,8 @@ namespace Mission06_Zorrilla.Controllers
         [HttpPost]
         public IActionResult AddMovie(Application response)
         {
+            _context.AddedMovies.Add(response); //Add record to the database to the AddedMovies table
+            _context.SaveChanges();
             return View("Confirmation", response);
         }
         public IActionResult GetToKnow()
