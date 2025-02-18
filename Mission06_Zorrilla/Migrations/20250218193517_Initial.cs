@@ -20,10 +20,10 @@ namespace Mission06_Zorrilla.Migrations
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Year = table.Column<int>(type: "INTEGER", nullable: false),
                     Director = table.Column<string>(type: "TEXT", nullable: false),
-                    Rating = table.Column<string>(type: "TEXT", nullable: true),
-                    Edited = table.Column<bool>(type: "INTEGER", nullable: true),
-                    LentTo = table.Column<string>(type: "TEXT", nullable: true),
-                    Notes = table.Column<string>(type: "TEXT", nullable: true)
+                    Rating = table.Column<string>(type: "TEXT", nullable: false),
+                    Edited = table.Column<bool>(type: "INTEGER", nullable: false),
+                    LentTo = table.Column<string>(type: "TEXT", nullable: false),
+                    Notes = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -10,8 +10,8 @@ using Mission06_Zorrilla.Models;
 namespace Mission06_Zorrilla.Migrations
 {
     [DbContext(typeof(AddMovieContext))]
-    [Migration("20250218174355_TakeFour")]
-    partial class TakeFour
+    [Migration("20250218193517_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

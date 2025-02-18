@@ -5,7 +5,7 @@
 namespace Mission06_Zorrilla.Migrations
 {
     /// <inheritdoc />
-    public partial class TakeFour : Migration
+    public partial class UpdateRatingField : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
