@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-@model Application
+@model Application // this is the name of the Application that we'll use eventually to send and store the infromation in the database
 
 <h1>@ViewData["Title"]</h1>
 
@@ -35,7 +35,6 @@
         <br />
         <label asp-for="Edited">Edited</label>
         <select>
-            <option value=""></option>
             <option value="true">Yes</option>
             <option value="false">No</option>
         </select>
