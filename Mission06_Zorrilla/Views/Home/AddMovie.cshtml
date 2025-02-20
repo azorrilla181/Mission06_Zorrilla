@@ -1,23 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-@model Application // this is the name of the Application that we'll use eventually to send and store the infromation in the database
-
+@model Movie // this is the name of the class that will allow to store each of the answers
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
 
 <form method="post">
     <div class="form-group">
-        <label asp-for="Category">Category</label>
-        <input asp-for="Category" />
+        <label asp-for="CategoryID">Category</label>
+        <select asp-for="CategoryID" class="form-control" required>
+            <option value="">-- Select a category --</option>
+            @foreach (Category c in ViewBag.Category)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+        </select>
+        <span asp-validation-for="CategoryID" class="text-danger"></span>
         <br />
+
         <label asp-for="Title">Title</label>
-        <input asp-for="Title" />
+        <input asp-for="Title" class="form-control" required/>
+        <span asp-validation-for="Title" class="text-danger"></span>
         <br />
 
         <label asp-for="Year">Year</label>
-        <input asp-for="Year" />
+        <input asp-for="Year" class="form-control" type="number" min="1888" required />
+        <span asp-validation-for="Year" class="text-danger"></span>
+
         <br />
 
         <label asp-for="Director">Director</label>
@@ -44,6 +54,14 @@
         <br />
         <label asp-for="LentTo">Lent To</label>
         <input asp-for="LentTo" />
+        <br />
+		<label asp-for="CopiedToPlex">Copied To Plex</label>
+        <select asp-for="CopiedToPlex" class="form-control" required>
+            <option value="">-- Seelct an option --</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
         <br />
 
         <label asp-for="Notes">Notes</label>
