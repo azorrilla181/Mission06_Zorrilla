@@ -32,6 +32,9 @@
 			<td>@m.LentTo</td>
 			<td>@m.CopiedToPlex</td>
 			<td>@m.Notes</td>
+
+			<td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@m.MovieID">Edit</a></td>
+			<td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@m.MovieID">Delete</a></td>
 		</tr>
 	}
 

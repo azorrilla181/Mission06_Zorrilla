@@ -8,6 +8,8 @@
 
 <form method="post">
     <div class="form-group">
+        <input type="hidden" asp-for="MovieID">
+
         <label asp-for="CategoryID">Category</label>
         <select asp-for="CategoryID" class="form-control" required>
             <option value="">-- Select a category --</option>

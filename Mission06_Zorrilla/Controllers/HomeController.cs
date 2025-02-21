@@ -24,7 +24,10 @@ namespace Mission06_Zorrilla.Controllers
         {
             return View();
         }
-
+        public IActionResult GetToKnow()
+        {
+            return View();
+        }
         [HttpGet]
         public IActionResult AddMovie()
         {
@@ -50,10 +53,40 @@ namespace Mission06_Zorrilla.Controllers
             
             return View(irequests);
         }
-
-        public IActionResult GetToKnow()
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
-            return View();
+            var recordToEdit = _context.Movies
+                .Single(x => x.MovieID == id);
+
+            ViewBag.Category = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+
+            return View("AddMovie", recordToEdit);
+        }
+        [HttpPost]
+        public IActionResult Edit(Movie response)
+        {
+            _context.Movies.Update(response);
+            _context.SaveChanges();
+            return RedirectToAction("MovieWaitList");
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var recordToDelete = _context.Movies
+                .Single(m => m.MovieID == id);
+            return View(recordToDelete);
+            
+        }
+        [HttpPost]
+        public IActionResult Delete(Movie moviet)
+        {
+            _context.Movies.Remove(moviet);
+            _context.SaveChanges();
+            
+            return RedirectToAction("MovieWaitList");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
