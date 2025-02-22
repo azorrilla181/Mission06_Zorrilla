@@ -19,7 +19,7 @@ namespace Mission06_Zorrilla.Migrations
 
             modelBuilder.Entity("Mission06_Zorrilla.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -27,71 +27,70 @@ namespace Mission06_Zorrilla.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("CategoryID");
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
-                            CategoryID = 1,
+                            CategoryId = 1,
                             CategoryName = "Miscellaneous"
                         },
                         new
                         {
-                            CategoryID = 2,
+                            CategoryId = 2,
                             CategoryName = "Drama"
                         },
                         new
                         {
-                            CategoryID = 3,
+                            CategoryId = 3,
                             CategoryName = "Television"
                         },
                         new
                         {
-                            CategoryID = 4,
+                            CategoryId = 4,
                             CategoryName = "Horror/Suspense"
                         },
                         new
                         {
-                            CategoryID = 5,
+                            CategoryId = 5,
                             CategoryName = "Comedy"
                         },
                         new
                         {
-                            CategoryID = 6,
+                            CategoryId = 6,
                             CategoryName = "Family"
                         },
                         new
                         {
-                            CategoryID = 7,
+                            CategoryId = 7,
                             CategoryName = "Action/Adventure"
                         },
                         new
                         {
-                            CategoryID = 8,
+                            CategoryId = 8,
                             CategoryName = "VHS"
                         });
                 });
 
             modelBuilder.Entity("Mission06_Zorrilla.Models.Movie", b =>
                 {
-                    b.Property<int>("MovieID")
+                    b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool?>("CopiedToPlex")
-                        .IsRequired()
+                    b.Property<bool>("CopiedToPlex")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool?>("Edited")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LentTo")
@@ -102,7 +101,6 @@ namespace Mission06_Zorrilla.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rating")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -112,9 +110,9 @@ namespace Mission06_Zorrilla.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("MovieID");
+                    b.HasKey("MovieId");
 
-                    b.HasIndex("CategoryID");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Movies");
                 });
@@ -123,7 +121,7 @@ namespace Mission06_Zorrilla.Migrations
                 {
                     b.HasOne("Mission06_Zorrilla.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryID")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

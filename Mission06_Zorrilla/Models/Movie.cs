@@ -6,7 +6,7 @@ namespace Mission06_Zorrilla.Models
     public class Movie
     {
         [Key]
-        public int MovieID { get; set; }
+        public int MovieId { get; set; }
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Year is required")]
@@ -16,6 +16,7 @@ namespace Mission06_Zorrilla.Models
         public string? Director { get; set; }
         
         public string? Rating { get; set; }
+        [Required(ErrorMessage = "Please select if the movie has been edited")]
         public bool? Edited { get; set; }
         public string? LentTo { get; set; }
         [Required(ErrorMessage = "Please select if the movie is copied to Plex")]
@@ -23,10 +24,8 @@ namespace Mission06_Zorrilla.Models
         
         [MaxLength(25)]
         public string? Notes { get; set; }
-
-        [Required(ErrorMessage = "Category is required")]
         [ForeignKey("CategoryID")]
-        public int CategoryID { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
 
 

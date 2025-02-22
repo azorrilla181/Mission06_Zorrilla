@@ -57,7 +57,7 @@ namespace Mission06_Zorrilla.Controllers
         public IActionResult Edit(int id)
         {
             var recordToEdit = _context.Movies
-                .Single(x => x.MovieID == id);
+                .Single(x => x.MovieId == id);
 
             ViewBag.Category = _context.Categories
                 .OrderBy(x => x.CategoryName)
@@ -76,7 +76,7 @@ namespace Mission06_Zorrilla.Controllers
         public IActionResult Delete(int id)
         {
             var recordToDelete = _context.Movies
-                .Single(m => m.MovieID == id);
+                .Single(m => m.MovieId == id);
             return View(recordToDelete);
             
         }

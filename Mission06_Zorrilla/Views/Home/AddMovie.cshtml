@@ -8,17 +8,17 @@
 
 <form method="post">
     <div class="form-group">
-        <input type="hidden" asp-for="MovieID">
+        <input type="hidden" asp-for="MovieId">
 
-        <label asp-for="CategoryID">Category</label>
-        <select asp-for="CategoryID" class="form-control" required>
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" class="form-control">
             <option value="">-- Select a category --</option>
             @foreach (Category c in ViewBag.Category)
             {
-                <option value="@c.CategoryID">@c.CategoryName</option>
+                <option value="@c.CategoryId">@c.CategoryName</option>
             }
         </select>
-        <span asp-validation-for="CategoryID" class="text-danger"></span>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
         <br />
 
         <label asp-for="Title">Title</label>
@@ -38,6 +38,7 @@
 
         <label asp-for="Rating">Rating</label>
         <select asp-for="Rating">
+            <option value="">-- Select an option --</option>
             <option value="G">G</option>
             <option value="PG">PG</option>
             <option value="PG-13">PG-13</option>
@@ -46,8 +47,8 @@
         <br />
         <br />
         <label asp-for="Edited">Edited</label>
-        <select asp-for="Edited">
-            <option value="">-- Seelct an option --</option>
+        <select asp-for="Edited" required>
+            <option value="">-- Select an option --</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
 
@@ -59,7 +60,7 @@
         <br />
 		<label asp-for="CopiedToPlex">Copied To Plex</label>
         <select asp-for="CopiedToPlex" class="form-control" required>
-            <option value="">-- Seelct an option --</option>
+            <option value="">-- Select an option --</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
         </select>
